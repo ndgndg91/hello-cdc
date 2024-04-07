@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: execution-aggregator
+  kafka:
+    bootstrap-servers: kafka-broker1:9092,kafka-broker2:9093,kafka-broker3:9094
+    streams:
+      application-id: execution-aggregator
+
