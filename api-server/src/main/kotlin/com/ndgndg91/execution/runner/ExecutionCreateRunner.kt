@@ -34,14 +34,14 @@ class ExecutionCreateRunner(
     override fun run(args: ApplicationArguments?) {
         logger.info("start runner")
         val startTime = System.currentTimeMillis()
-        var roofCount = 0
+        var insertCount = 0
         while (hasStop.get()) {
-            if (roofCount > 1_000_000) {
+            if (insertCount > 1_000_000) {
                 hasStop.set(false)
             }
-            if (roofCount % 100 == 0) {
+            if (insertCount % 100 == 0) {
                 val time = System.currentTimeMillis()
-                logger.info("{} rows inserted. {}", roofCount, time - startTime)
+                logger.info("{} rows inserted. {}", insertCount, time - startTime)
             }
 
             val firstTask = CompletableFuture.runAsync { repository.save(history()) }
@@ -50,7 +50,7 @@ class ExecutionCreateRunner(
             val fourthTask = CompletableFuture.runAsync { repository.save(history()) }
             val fifthTask = CompletableFuture.runAsync { repository.save(history()) }
             CompletableFuture.allOf(firstTask, secondTask, thirdTask, fourthTask, fifthTask).get()
-            roofCount += 5
+            insertCount += 5
         }
     }
 

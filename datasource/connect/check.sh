@@ -1,0 +1,1 @@
+curl http://kafka-connect:8083/connectors/mysql-connector/status

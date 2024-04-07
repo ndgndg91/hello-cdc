@@ -1,0 +1,28 @@
+{
+  "name": "mysql-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",
+    "database.hostname": "db",
+    "database.port": "3306",
+    "database.user": "ndgndg91",
+    "database.password": "ndgndg91password",
+    "database.server.id": "184054",
+    "database.server.name": "mysql-dbserver",
+    "database.include.list": "my_sandbox",
+    "database.history.kafka.bootstrap.servers": "kafka-broker1:9092,kafka-broker2:9093,kafka-broker3:9094",
+    "database.history.kafka.topic": "EXECUTION_HISTORY.FULFILLMENT",
+    "topic.prefix": "mysql",
+    "include.schema.changes": "true",
+    "transforms": "unwrap",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.add.source.fields": "ts_ms",
+    "transforms.unwrap.delete.handling.mode": "rewrite",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false",
+    "schema.history.internal.kafka.topic": "schema-changes",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka-broker1:9092,kafka-broker2:9093,kafka-broker3:9094"
+  }
+}

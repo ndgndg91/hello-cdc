@@ -1,0 +1,1 @@
+curl -X POST http://kafka-connect:8083/connectors/mysql-connector/restart
