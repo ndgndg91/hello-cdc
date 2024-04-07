@@ -1,3 +1,3 @@
 rootProject.name = "hello-cdc"
 
-include("api-server")
+include("execution-accumulator")
