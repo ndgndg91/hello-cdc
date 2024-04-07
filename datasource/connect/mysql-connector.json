@@ -23,6 +23,12 @@
     "key.converter.schemas.enable": "false",
     "value.converter.schemas.enable": "false",
     "schema.history.internal.kafka.topic": "schema-changes",
-    "schema.history.internal.kafka.bootstrap.servers": "kafka-broker1:9092,kafka-broker2:9093,kafka-broker3:9094"
+    "schema.history.internal.kafka.bootstrap.servers": "kafka-broker1:9092,kafka-broker2:9093,kafka-broker3:9094",
+    "errors.tolerance": "all",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true",
+    "errors.deadletterqueue.topic.name": "dead_letter_queue",
+    "errors.deadletterqueue.context.headers.enable": "true",
+    "producer.enable.idempotence": "true"
   }
 }
