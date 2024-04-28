@@ -100,6 +100,11 @@ services:
       CONNECT_KEY_CONVERTER_SCHEMAS_ENABLE: "false"
       CONNECT_VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
+      CONNECT_TRANSFORMS: "ExtractTimestamp"
+      CONNECT_TRANSFORMS_EXTRACTTIMESTAMP_TYPE: "org.apache.kafka.connect.transforms.TimestampConverter$Value"
+      CONNECT_TRANSFORMS_EXTRACTTIMESTAMP_FIELD: "timestamp"
+      CONNECT_TRANSFORMS_EXTRACTTIMESTAMP_TARGET_TYPE: "Date"
+      CONNECT_TRANSFORMS_EXTRACTTIMESTAMP_FORMAT: "yyyy-MM-dd"
     command:
       - bash
       - -c
